@@ -5,6 +5,9 @@ returPage();
 // Initialize error message
 $error_message = '';
 
+
+
+
 ?>
 
 
@@ -22,7 +25,9 @@ $error_message = '';
 <body class="bg-secondary-subtle">
     <div class="d-flex align-items-center justify-content-center vh-100">
         <div class="col-3">
-            <!-- Server-Side Validation Messages should be placed here -->
+        <?php if ($error_message): ?>
+                <?php echo $error_message; ?>
+            <?php endif; ?>
             <div class="card">
                 <div class="card-body">
                     <h1 class="h3 mb-4 fw-normal">Login</h1>
@@ -37,7 +42,7 @@ $error_message = '';
                         </div>
                         <div class="form-floating mb-3">
                             <button type="submit" name="login" class="btn btn-primary w-100">Login</button>
-                            <a href="./admin/dashboard.php">sdfd</a>
+                         
                         </div>
                     </form>
                 </div>
