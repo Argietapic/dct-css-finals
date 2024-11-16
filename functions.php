@@ -26,7 +26,11 @@
                 if (!empty($_SESSION['page'])) {  // Check if the 'page' session variable is set
                     header("Location:". $_SESSION['page']);
                     exit();
-                } 
-            
-        }   
+                } else {
+                    // If 'page' is not set, redirect to a default page (e.g., dashboard or home)
+                    header("Location: /admin/dashboard.php"); // Change to your default redirect page
+                    exit();
+                }
+            }
+        }
 ?>
