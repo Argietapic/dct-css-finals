@@ -50,5 +50,8 @@
 
             $sql = "SELECT * FROM users WHERE email = ? AND password = ?";
             $stmt = $conn->prepare($sql);
+            $stmt->bind_param("ss", $email, $hashedPassword);
+            $stmt->execute();
             $result = $stmt->get_result();
+
 ?>
