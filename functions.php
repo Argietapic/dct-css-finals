@@ -33,4 +33,22 @@
                 }
             }
         }
+
+
+
+
+
+        function loginUser($email, $password) {
+
+            if (empty($email) || empty($password)) {
+                return generateError("<li>Email is required </li><li>Password are required.</li>");
+            } elseif (!str_ends_with($email, '@gmail.com')) {
+                return generateError("<li>Invalid Email format </li>");
+            }
+            $conn = connectDB();
+            $hashedPassword = md5($password); // Hash the password
+
+            $sql = "SELECT * FROM users WHERE email = ? AND password = ?";
+            $stmt = $conn->prepare($sql);
+            $result = $stmt->get_result();
 ?>
