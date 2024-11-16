@@ -22,9 +22,9 @@
         }
     
         function returPage(){
-            if (empty($_SESSION["email"])) {
-                if (empty($_SESSION['pages'])) {  // Check if the 'page' session variable is set
-                    header("Location:". $_SESSION['pages']);
+            if (!empty($_SESSION["email"])) {
+                if (!empty($_SESSION['page'])) {  // Check if the 'page' session variable is set
+                    header("Location:". $_SESSION['page']);
                     exit();
                 } 
             
