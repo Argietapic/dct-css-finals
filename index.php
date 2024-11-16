@@ -1,3 +1,14 @@
+<?php
+
+require_once 'functions.php';
+returPage();    
+// Initialize error message
+$error_message = '';
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
