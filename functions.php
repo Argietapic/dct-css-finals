@@ -16,8 +16,10 @@
     }    
 
     function guard() {  
-   
+        if (empty($_SESSION["email"])){
+             header("Location:/index.php");
+         }
         }
-    }
+    
 
 ?>
