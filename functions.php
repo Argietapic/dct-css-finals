@@ -53,5 +53,12 @@
             $stmt->bind_param("ss", $email, $hashedPassword);
             $stmt->execute();
             $result = $stmt->get_result();
+        
+            if ($result->num_rows > 0) {
+                $_SESSION['password'] = $password;
+                return true;
+            } else {
 
+            }
+        }
 ?>
