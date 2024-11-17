@@ -55,7 +55,7 @@ include("../partials/side-bar.php");
                         <th scope="col">Options</th>
                     </tr>
                 </thead>
-               
+                <?php fetchStudents(); ?>
             </table>
             </div>
         </div>
