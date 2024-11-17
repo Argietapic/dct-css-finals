@@ -76,7 +76,7 @@
                 $_SESSION['email'] = $email;
                 return true;
             } else {
-
+                return generateError("<li>Invalid email or password.</li>");
             }
         }
 
