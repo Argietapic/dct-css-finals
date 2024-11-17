@@ -55,11 +55,15 @@ include("../partials/side-bar.php");
                         <th scope="col">Options</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <?php if (!empty($_SESSION['students'])): ?>
-                        <?php foreach ($_SESSION['students'] as $student): ?>
-                            <tr>
-                                <td><?php echo $student['id']; ?></td>
-                                <td><?php echo $student['first_name']; ?></td>
-                                <td><?php echo $student['last_name']; ?></td>
-                                <td>       
+               
+            </table>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<?php 
+include("../partials/footer.php");
+?>
