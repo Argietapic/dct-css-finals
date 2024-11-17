@@ -1,5 +1,18 @@
 <?php
 include("../../functions.php");
+$error_message = '';
+guard();
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $subjectCode = $_POST['subjectCode'] ?? '';
+    $subjectName = $_POST['subjectName'] ?? '';
+    $result =insertSubject($subjectCode, $subjectName);
+    $error_message=$result;
+}
+$Pagetitle = "Add Subject";
+
+include("../partials/header.php");
+include("../partials/side-bar.php");
 ?>
 
 
