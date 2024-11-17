@@ -21,7 +21,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="admin/student/register.php">
+                    <a class="nav-link d-flex align-items-center gap-2" href="/admin/student/register.php">
                         <i class="fa-solid fa-user fa-fw me-2"></i>
                         Students
                     </a>
