@@ -43,3 +43,15 @@ include("../partials/side-bar.php");
         </div>
     </div>
    
+    <div class="card mt-4">
+        <div class="card-header">Student List</div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Student ID</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Options</th>
+                    </tr>
+                </thead>
