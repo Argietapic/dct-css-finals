@@ -23,5 +23,23 @@ include("../partials/side-bar.php");
         </div>
     <?php endif; ?>
    
-
+    <div class="card">
+        <div class="card-body">
+            <form action="" method="POST">
+                <div class="mb-3">
+                    <label for="studentId" class="form-label">Student ID</label>
+                    <input type="text" class="form-control" id="studentId" name="studentId" placeholder="Enter Student ID" >
+                </div>
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter First Name" >
+                </div>
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter Last Name" >
+                </div>
+                <button type="submit" class="btn btn-primary">Add Student</button>
+            </form>
+        </div>
+    </div>
    
