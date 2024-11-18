@@ -9,7 +9,7 @@
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2" href="/admin/dashboard.php">
                         <i class="fa-solid fa-gauge fa-fw me-2"></i>
-                        Dashboard
+                        <b> Dashboard </b>
                     </a>
                 </li>
 
