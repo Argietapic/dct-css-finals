@@ -26,5 +26,7 @@ include("../partials/side-bar.php");
                 <li class="breadcrumb-item active" aria-current="page">Add Subject</li>
             </ol>
         </nav>
-
+        <?php if ($error_message): ?>
+                <?php echo $error_message; ?>
+            <?php endif; ?>
         </main>
