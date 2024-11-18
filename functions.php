@@ -86,5 +86,16 @@
         }
         function insertSubject($subjectCode, $subjectName) {
 
+
+
+            
         }
+
+
+        function fetchStudents() {
+
+
+
+
+        }    
 ?>
