@@ -84,4 +84,7 @@
             session_destroy();
             header("Location:/index.php");
         }
+        function insertSubject($subjectCode, $subjectName) {
+
+        }
 ?>
