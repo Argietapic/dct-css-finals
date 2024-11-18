@@ -29,4 +29,22 @@ include("../partials/side-bar.php");
         <?php if ($error_message): ?>
                 <?php echo $error_message; ?>
             <?php endif; ?>
+
+            <div class="form-container mb-4" >
+        <div class="card">
+        <div class="card-body">
+            <form method="POST">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="subjectCode" name="subjectCode" placeholder="" maxlength="4">
+                    <label for="subjectCode">Subject Code</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="subjectName" name="subjectName"placeholder="" >                   <label for="subjectName">Subject Name</label>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 mb-4" >Add Subject</button>
+            </form>
+            </div>
+            </div>  
+        </div>
+
         </main>
