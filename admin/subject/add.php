@@ -47,4 +47,27 @@ include("../partials/side-bar.php");
             </div>  
         </div>
 
+        <div class="card p-5 mt-4">
+            <h4>Subject List</h4>
+            <div class="table-responsive"> 
+            <table class="table table-striped ">
+                <thead class="table-white">
+                    <tr>
+                    <th>Subject Code</th>
+                            <th>Subject Name</th>
+                            <th>Options</th>
+                    </tr>
+                </thead>
+         
+            </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+<?php
+include('../partials/footer.php');
+?>
+
         </main>
