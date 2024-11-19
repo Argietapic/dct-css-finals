@@ -58,7 +58,7 @@ include("../partials/side-bar.php");
                             <th>Options</th>
                     </tr>
                 </thead>
-         
+                <?php fetchAndDisplaySubjects(); ?>
             </table>
             </div>
         </div>
