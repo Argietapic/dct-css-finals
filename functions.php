@@ -84,18 +84,32 @@
             session_destroy();
             header("Location:/index.php");
         }
-        function insertSubject($subjectCode, $subjectName) {
+       
 
-
-
-            
+        function fetchAndDisplaySubjects() {
+            $conn = connectDB();
+            // Query to fetch subjects from the database
+            $result = $conn->query("SELECT * FROM subjects");
+        
+            if ($result->num_rows > 0) {
+                while ($subject = $result->fetch_assoc()) {
+                    echo '<tr>';
+                    echo '<td>' . htmlspecialchars($subject['subject_code']) . '</td>';
+                    echo '<td>' . htmlspecialchars($subject['subject_name']) . '</td>';
+                    echo '<td>';
+                    echo '<a href="edit.php?code=' . urlencode($subject['subject_code']) . '"><button class="btn btn-info ">Edit</button></a>';
+                    echo ' ';
+                    echo '<a href="delete.php?code=' . urlencode($subject['subject_code']) . '"><button class="btn btn-danger ">Delete</button></a>';
+                    echo '</td>';
+                    echo '</tr>';
+                }
+            } else {
+                echo '<tr>';
+                echo '<td colspan="3" class="text-center">No subjects found.</td>';
+                echo '</tr>';
+            }
         }
 
+        
 
-        function fetchStudents() {
-
-
-
-
-        }    
 ?>
