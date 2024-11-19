@@ -85,6 +85,33 @@
             header("Location:/index.php");
         }
        
+        function insertSubject($subjectCode, $subjectName) {
+            $conn = connectDB();
+            // Validate input
+            if (empty($subjectCode) || empty($subjectName)) {
+                return generateError("<li>Subject Code is required</li><li>Subject Name is required.</li>");
+            }
+            $query = "SELECT COUNT(*) as count FROM subjects WHERE subject_code = ? OR subject_name = ?";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("ss", $subjectCode, $subjectName);  
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+            
+            if ($row['count'] > 0) {
+                return generateError("<li>Duplicate Subject Code or  Subject Name</li>");
+            } else {
+                $insertQuery = "INSERT INTO subjects (subject_code, subject_name) VALUES (?, ?)";
+                $insertStmt = $conn->prepare($insertQuery);
+                $insertStmt->bind_param("ss", $subjectCode, $subjectName); // Bind parameters
+                if ($insertStmt->execute()) {
+                    return generateSuccess("<li>Subject Added Successfully!</li>");
+                } else {
+                    return generateError("<li>Error adding subject: " . $insertStmt->error . "</li>");
+                }
+            }
+        }
+
 
         function fetchAndDisplaySubjects() {
             $conn = connectDB();
