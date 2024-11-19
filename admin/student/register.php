@@ -28,7 +28,7 @@ include("../partials/side-bar.php");
             <form action="" method="POST">
                 <div class="mb-3">
                     <label for="studentId" class="form-label">Student ID</label>
-                    <input type="text" class="form-control" id="studentId" name="studentId" placeholder="Enter Student ID" >
+                    <input type="text" class="form-control" id="studentId" name="studentId" placeholder="Enter Student ID" maxlength="4">
                 </div>
                 <div class="mb-3">
                     <label for="firstName" class="form-label">First Name</label>
@@ -54,9 +54,8 @@ include("../partials/side-bar.php");
                         <th scope="col">Last Name</th>
                         <th scope="col">Options</th>
                     </tr>
-                </thead>
-                <?php fetchStudents(); ?>
-            </table>
+                </thead>      
+             </table>
             </div>
         </div>
     </div>
