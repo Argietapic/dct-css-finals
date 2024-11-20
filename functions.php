@@ -84,6 +84,7 @@
             session_destroy();
             header("Location:/index.php");
         }
+        
        
         function insertSubject($subjectCode, $subjectName) {
             $conn = connectDB();
@@ -137,6 +138,74 @@
             }
         }
 
+        function updateSubject($subjectName, $originalCode) {
+            // Validate the input
+            if (empty($subjectName)) {
+                return generateError1("<li>Subject Name is required.</li>");
+            }
+            $conn = connectDB();
+        
+            // Check if the new subject name already exists for another subject code
+            $stmt = $conn->prepare("SELECT * FROM subjects WHERE subject_name = ? AND subject_code != ?");
+            $stmt->bind_param("ss", $subjectName, $originalCode);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            // If a duplicate subject name is found, return an error
+            if ($result->num_rows > 0) {
+                $stmt->close();
+                $conn->close();
+                return generateError1("<li>Duplicate entry: Subject Name already exists for another Subject Code.</li>");
+            }
+        
+            // Update the subject name in the database (subject_code remains the same)
+            $stmt = $conn->prepare("UPDATE subjects SET subject_name = ? WHERE subject_code = ?");
+            $stmt->bind_param("ss", $subjectName, $originalCode);
+        
+            if ($stmt->execute()) {
+                $stmt->close();
+                $conn->close();
+                header("Location: /admin/subject/add.php?success=1");
+                exit; 
+            } else {
+                $stmt->close();
+                $conn->close();
+                return generateError1("<li>Error updating subject name.</li>");
+            }
+        }
+
+        function fetchSubjectDetails($subjectCode) {
+            $conn = connectDB();
+            $stmt = $conn->prepare("SELECT * FROM subjects WHERE subject_code = ?");
+            $stmt->bind_param("s", $subjectCode);
+            $stmt->execute();
+            $result = $stmt->get_result();
+        
+            if ($result->num_rows > 0) {
+                $subject = $result->fetch_assoc();
+                $stmt->close();
+                $conn->close();
+                return $subject;
+            } else {
+                $stmt->close();
+                $conn->close();
+                return null;
+            }
+        }
+
+        function countSubjects() {
+            $conn = connectDB();
+            $query = "SELECT COUNT(*) as count FROM subjects";
+            $result = $conn->query($query);
+        
+            if ($result) {
+                $row = $result->fetch_assoc();
+                return $row['count']; 
+            } else {
+                return generateError("<li>Error fetching subject count: " . $conn->error . "</li>");
+            }
+        
+            $conn->close();
+        }
         
 
 ?>
