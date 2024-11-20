@@ -85,7 +85,7 @@
             header("Location:/index.php");
         }
         
-       
+        
         function insertSubject($subjectCode, $subjectName) {
             $conn = connectDB();
             // Validate input
@@ -205,6 +205,31 @@
             }
         
             $conn->close();
+        }
+        
+        function deleteStudent($studentId, $studentFirstName, $studentLastName) {
+            $conn = connectDB();
+    
+            // Prepare the DELETE query for the students table
+            $stmt = $conn->prepare("DELETE FROM students WHERE student_id = ? AND first_name = ? AND last_name = ?");
+            if (!$stmt) {
+                error_log("Error preparing statement: " . $conn->error);
+                return false;
+            }
+            $stmt->bind_param("sss", $studentId, $studentFirstName,$studentLastName);
+    
+            // Execute the query
+            if ($stmt->execute()) {
+                $stmt->close();
+                $conn->close();
+                return true; 
+               
+            } else {
+                error_log("Error executing delete query: " . $stmt->error);
+                $stmt->close();
+                $conn->close();
+                return false; 
+            }
         }
         
 
